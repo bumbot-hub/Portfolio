@@ -82,7 +82,7 @@ p {
 /* === Layout strony === */
 body {
   height: 100vh;
-  background-image: url('src/assets/bg.png');
+  background-image: url('/images/bg.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
