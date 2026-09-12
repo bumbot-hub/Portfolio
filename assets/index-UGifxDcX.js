@@ -8,7 +8,7 @@
         <h4>Product Designer<br>& Developer</h4>
     </section>
     <div class="dot-reveal"></div>
-    <img src='src/assets/ChatGPT.png' alt='człowiek' class="hero-figure"> 
+    <img src='/images/ChatGPT.png' alt='człowiek' class="hero-figure"> 
 </section>
 
 <section id="about_me">
