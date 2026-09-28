@@ -2,8 +2,8 @@
   --pad: clamp(20px, 10vw, 192px);
   --font-hero: 'Press Start 2P', monospace;
   --lime: #D4FF3D;
-  --green: #72A22E;
-  --dark-green: #123A2B;
+  --green: #ADE065;
+  --dark-green: #425C19;
   --darker-green: #0A241B;
   --mint: #DDEFC0;
   --off-white: #F2F6E8;
@@ -52,13 +52,12 @@ a{ color: inherit; text-decoration: none; }
 .hero-title{
   display: flex;
   flex-direction: column;
-  margin: 0;
   font-family: var(--font-hero);
   font-weight: 400;
   font-size: clamp(36px, 11vw, 176px);
   line-height: 1.05;
   color: #FFFFFF;
-  margin-left: 10%;
+  margin: 0 0 0 10%;
 }
 
 /* ---------- Fixed bottom nav — isosceles trapezoid, flush flat buttons ---------- */
@@ -68,33 +67,37 @@ a{ color: inherit; text-decoration: none; }
   left: 50%;
   transform: translateX(-50%);
   z-index: 999;
-  background: #ADE065;
   clip-path: polygon(56px 0, calc(100% - 56px) 0, 100% 100%, 0 100%);
-  width: 75vw;
-  max-width: 75vw;
   display: flex;
   gap: 0;
   align-items: stretch;
   justify-content: center;
   padding: 0 80px 8px;
-  flex-wrap: wrap;
+  overflow: hidden;
+  background: #ADE065;
 }
 .nav-btn{
+  flex-shrink: 0;
+  white-space: nowrap;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 32px;
+  padding: 32px 8px;
   font-size: 16px;
   font-weight: 700;
-  color: #DDEFC0;
-  background: #33540D;
-  border-left: 1px solid #1F350A;
-  transition: background 0.08s;
+  color: #FFFFFF;
+  background: #425C19;
+  border-left: 2px solid var(--ink);
+  box-shadow: -4px 10px 0 var(--ink);        /* cień pod spodem */
+  transition: background 0.08s, transform 0.12s, box-shadow 0.12s;
 }
 .nav-btn:first-child{ border-left: none; }
-.nav-btn:hover{ background: #1F350A; }
 .nav-btn--icon{ padding: 0 20px; }
-.nav-icon{ width: 20px; height: 20px; fill: #DDEFC0; }
+.nav-icon{ width: 36px; height: 36px; fill: #FFFFFF; }
+.nav-btn:hover{
+  background: var(--dark-green);              /* opcjonalnie, spójnie z .media:hover */
+  transform: translateY(6px);            /* wjeżdża dokładnie o tyle, ile był cień */
+}
 
 /* ---------- Hard/brutalist buttons + tags ---------- */
 .btn-hard{
@@ -140,7 +143,7 @@ a{ color: inherit; text-decoration: none; }
   box-shadow: calc(var(--sx, 0) * 8px) 8px 0 var(--ink); /* --sx comes from the border direction below */
   transition: transform 0.5s, box-shadow 0.5s, border-color 0.5s;
 }
-.media img{ width: 100%; height: 100%; object-fit: cover; display: block; }
+.media img{ width: 100%; height: 100%; object-fit: contain; padding: 12%; display: block; }
 .media__placeholder{ font-size: 11px; color: var(--muted); font-weight: 700; text-align: center; }
 
 /* --- sizes --- */

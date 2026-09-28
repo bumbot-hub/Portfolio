@@ -19,7 +19,7 @@ export default function MediaBlock({
   return (
     <div className={className}>
       {src ? (
-        <img src={`${import.meta.env.BASE_URL}${src}`} alt={label} />
+        <img src={`${import.meta.env.BASE_URL}${src}`} alt={label} className={'project-img'} />
       ) : (
         <span className="mono media__placeholder">[{label}]</span>
       )}

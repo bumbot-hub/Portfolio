@@ -75,7 +75,7 @@ export const projects = [
 
 
 export const logofolio = [
-    { name: 'Test', image: 'images/logos/test.png' },
+    { name: 'Neuron IDE', image: 'src/assets/logos/neuron-ide.png' },
     { name: 'Test',  image: 'images/logos/test.png' },
     { name: 'Test', image: 'images/logos/test.png' },
     { name: 'Test',  image: 'images/logos/test.png' },
