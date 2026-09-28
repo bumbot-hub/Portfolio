@@ -13,14 +13,14 @@ export default function Home() {
       <Hero />
 
       <section id="projects" className="projects-section side-pad">
-        <div className="section-label mono">projekty</div>
+        <div className="section-label pixel">projects</div>
         {bigProjects.map((project, i) => (
           <Card key={project.slug} index={i + 1} reverse={i % 2 === 1} {...project} />
         ))}
       </section>
 
       <section className="grid-section side-pad">
-        <div className="section-label mono">pozostałe</div>
+        <div className="section-label pixel">others</div>
         <div className="small-grid">
           {smallProjects.map((project) => (
             <Card key={project.slug} {...project} />
@@ -30,7 +30,7 @@ export default function Home() {
 
 
       <section id="logofolio" className="side-pad" style={{ minHeight: '40vh' }}>
-        <div className="section-label mono">logofolio</div>
+        <div className="logofolio-label mono">logofolio</div>
         <div className="logo-grid">
           {logos.map((logo, i) => (
             <MediaBlock key={i} size="logo" src={logo.image} label={logo.name} />
@@ -39,7 +39,7 @@ export default function Home() {
       </section>
 
       <footer id="contact" className="contact-section halftone side-pad" style={{ minHeight: '40vh' }}>
-        <div className="contact-label mono">kontakt</div>
+        <div className="contact-label mono">contact</div>
       </footer>
     </main>
   )

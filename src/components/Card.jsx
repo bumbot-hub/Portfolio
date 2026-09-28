@@ -27,7 +27,7 @@ export default function Card({
   reverse = false
 }) {
   const to = `/projects/${slug}`
-  const resolvedBorder = border ?? (size === 'big' ? 'right' : 'left')
+  const resolvedBorder = border ?? (reverse === false ? 'left' : 'right')
   const resolvedHover = hover ?? (size === 'big' ? 'none' : 'reveal')
 
   if (size === 'small') {
@@ -53,11 +53,11 @@ export default function Card({
       <div className={`feat-copy${reverse ? ' order-1' : ''}`}>
         <h3 className="feat-heading">
           <span className="feat-num">#{String(index).padStart(2, '0')}</span>
-          <span className="feat-heading">{heading}</span>
+          <span className="feat-title">{heading}</span>
         </h3>
         <p className="feat-desc">{description}</p>
         <Tags tags={tags} className="feat-tags" />
-        <Link to={to} className="feat-link mono">ZOBACZ CASE STUDY →</Link>
+        <Link to={to} className="feat-link mono">GET MORE DETAILS →</Link>
       </div>
     </article>
   )

@@ -1,5 +1,5 @@
 :root{
-  --pad: clamp(20px, 6vw, 80px);
+  --pad: clamp(20px, 10vw, 192px);
   --font-hero: 'Press Start 2P', monospace;
   --lime: #D4FF3D;
   --green: #72A22E;
@@ -18,7 +18,8 @@
 
 body{
   margin: 0;
-  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-family: 'IBM Plex Mono', monospace;
+  letter-spacing: -3%;
   background: #FFFFFF;
   color: var(--ink);
 }
@@ -26,8 +27,11 @@ body{
 a{ color: inherit; text-decoration: none; }
 
 .mono{ font-family: 'IBM Plex Mono', monospace; }
+.pixel{ font-family: 'Press Start 2P', monospace; }
+
 .side-pad{ padding-left: var(--pad); padding-right: var(--pad); }
-.section-label{ font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; }
+.section-label{ font-size: 32px; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; margin-top: 72px; }
+.logofolio-label {font-size: 92px; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; margin-top: 256px; margin-bottom: 64px; text-align: center; font-family: 'Excelorate';}
 
 /* ---------- Hero ---------- */
 .hero{
@@ -54,6 +58,7 @@ a{ color: inherit; text-decoration: none; }
   font-size: clamp(36px, 11vw, 176px);
   line-height: 1.05;
   color: #FFFFFF;
+  margin-left: 10%;
 }
 
 /* ---------- Fixed bottom nav — isosceles trapezoid, flush flat buttons ---------- */
@@ -114,7 +119,7 @@ a{ color: inherit; text-decoration: none; }
   border: 1.5px solid var(--ink);
   font-weight: 700;
   text-transform: uppercase;
-  font-size: 11px;
+  font-size: 12px;
   padding: 3px 10px;
   display: inline-block;
 }
@@ -132,10 +137,11 @@ a{ color: inherit; text-decoration: none; }
   justify-content: center;
   background: var(--card-bg);
   border: 2.5px solid var(--ink);
-  box-shadow: calc(var(--sx, 0) * 6px) 6px 0 var(--ink); /* --sx comes from the border direction below */
+  box-shadow: calc(var(--sx, 0) * 8px) 8px 0 var(--ink); /* --sx comes from the border direction below */
+  transition: transform 0.5s, box-shadow 0.5s, border-color 0.5s;
 }
 .media img{ width: 100%; height: 100%; object-fit: cover; display: block; }
-.media__placeholder{ font-size: 11px; color: var(--muted); font-weight: 700; }
+.media__placeholder{ font-size: 11px; color: var(--muted); font-weight: 700; text-align: center; }
 
 /* --- sizes --- */
 .media--big{ aspect-ratio: 16/10; }
@@ -180,35 +186,47 @@ a{ color: inherit; text-decoration: none; }
 }
 
 /* ---------- Featured projects ---------- */
-.projects-section{ padding-top: 30px; padding-bottom: 30px; display: flex; flex-direction: column; gap: 64px; }
-.feat-row{ display: grid; grid-template-columns: repeat(12, minmax(0,1fr)); gap: 28px; align-items: center; }
+.projects-section{display: flex; flex-direction: column; gap: 96px; }
+.feat-row{ display: grid; grid-template-columns: repeat(12, minmax(0,1fr)); gap: 28px; align-self: start; }
 .feat-media-slot{ display: flex; grid-column: span 7; }
 .feat-media-slot .media{ width: 100%; }
 .feat-copy{ grid-column: span 5; display: flex; flex-direction: column; gap: 14px; }
 .feat-copy.order-1{ order: 1; }
 .feat-media-slot.order-2{ order: 2; }
-.feat-heading{ display: flex; align-items: baseline; gap: 16px; margin: 0; }
-.feat-num{ font-family: var(--font-hero); font-size: clamp(28px, 3.6vw, 48px); line-height: 1; color: var(--green); }
-.feat-title{ font-family: var(--font-hero); font-size: clamp(14px, 2.1vw, 26px); line-height: 1.35; margin: 0; font-weight: 400; }
-.feat-heading .feat-title{ flex: 1; min-width: 0; font-size: clamp(13px, 1.7vw, 22px); color: var(--ink); }
-.feat-desc{ font-size: 15px; line-height: 1.6; color: var(--muted); margin: 0; }
+.feat-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  margin: 0;
+  font-size: 32px;
+}
+.feat-num{ font-family: var(--font-hero); font-size: clamp(28px, 3.6vw, 64px); line-height: 1; color: var(--green); }
+.feat-title{ font-family: var(--font-hero); font-size: clamp(14px, 2.1vw, 32px); line-height: 1.35; margin: 0; font-weight: 400; }
+.feat-heading .feat-title{ min-width: 0; font-size: clamp(13px, 2.1vw, 24px); color: var(--ink); }
+.feat-desc{ font-size: 16px; line-height: 1.6; color: var(--muted); margin: 0; text-align: justify }
 .feat-tags{ display: flex; gap: 8px; flex-wrap: wrap; }
-.feat-link{ font-size: 13px; font-weight: 700; margin-top: 6px; }
+.feat-link{ font-size: 20px; font-weight: 700; margin-top: 8px; }
+
+.media:hover {
+  border-color: var(--green);
+  transform: translate(calc(var(--sx, 0) * 8px), 8px);
+  box-shadow: 0 0 0 var(--green);
+}
+.feat-link:hover{ color: var(--green); text-decoration: underline; }
 
 /* ---------- Small project grid ---------- */
-.grid-section{ padding-top: 36px; padding-bottom: 20px; display: flex; flex-direction: column; gap: 24px; }
+.grid-section{ padding-top: 64px; display: flex; flex-direction: column; gap: 89px; }
 .card-small{ display: block; }
-.small-grid{ display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 20px; }
+.small-grid{ display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 64px; }
 
 /* ---------- Logofolio ---------- */
-.logofolio-section{ padding-top: 56px; padding-bottom: 56px; display: flex; flex-direction: column; gap: 24px; background: #EAF0DC; }
-/* .grid-four = old name of .logo-grid; delete it once nothing uses it */
-.logo-grid, .grid-four{ display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 16px; }
+.logofolio-section{ padding-top: 56px; padding-bottom: 56px; display: flex; flex-direction: column; gap: 65px; background: #EAF0DC; }
+.logo-grid, .grid-four{ display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 64px; padding-bottom: 24px; }
 
 /* ---------- Contact ---------- */
 .halftone{
   background-color: var(--dark-green);
-  background-image: url(/assets/halftone-bg.png);
   background-repeat: repeat;
   background-size: 520px 293px;
 }
@@ -230,7 +248,26 @@ a{ color: inherit; text-decoration: none; }
   .feat-row{ grid-template-columns: 1fr; }
   .feat-media-slot, .feat-copy{ grid-column: span 1 !important; }
   /* on narrow screens the image always comes first */
-  .feat-media-slot.order-2, .feat-copy.order-1{ order: 0; }
+  .feat-media-slot.order-2, .feat-copy.order-1 .feat-heading{ order: 0; align-items: flex-end;}
   .small-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
   .logo-grid, .grid-four{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+
+.small-grid .card-small:nth-child(3n+2){
+  --sx-override: 0;
+}
+.small-grid .card-small:nth-child(3n+2) .media{
+  --sx: 0;
+}
+
+.small-grid .card-small:nth-child(3n){
+  --sx-override: 1;
+}
+.small-grid .card-small:nth-child(3n) .media{
+  --sx: 1;
+}
+
+.logo-grid > div:nth-child(4n+3),
+.logo-grid > div:nth-child(4n) {
+  --sx: 1;
 }
