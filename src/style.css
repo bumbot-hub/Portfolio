@@ -1,148 +1,236 @@
-/* === Fonty === */
-@font-face {
-  font-family: 'Ethnocentric-Regular';
-  src: url('fonts/Ethnocentric-Regular.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
+:root{
+  --pad: clamp(20px, 6vw, 80px);
+  --font-hero: 'Press Start 2P', monospace;
+  --lime: #D4FF3D;
+  --green: #72A22E;
+  --dark-green: #123A2B;
+  --darker-green: #0A241B;
+  --mint: #DDEFC0;
+  --off-white: #F2F6E8;
+  --ink: #14150F;
+  --muted: #5F604F;
+  --line: #E6E5DC;
+  --card-bg: #F4F4EF;
 }
 
-@font-face {
-  font-family: 'Excelorate';
-  src: url('fonts/Excelorate.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
+/* ---------- Base ---------- */
+*{ box-sizing: border-box; }
 
-/* === Zmienne globalne + reset === */
-:root {
-  --text: #6b6375;
-  --bg: #161616;
-  --reveal-origin: 70% 45%;
-
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 768px) {
-  :root { --reveal-origin: 50% 30%; }
-}
-
-* {
+body{
   margin: 0;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  background: #FFFFFF;
+  color: var(--ink);
 }
 
-html, body {
-  overflow-x: hidden;
-  max-width: 100vw;
-}
+a{ color: inherit; text-decoration: none; }
 
-/* === Typografia === */
-h1 {
-  font-family: 'Excelorate';
-  font-size: 182px;
-  line-height: 182px;
-  color: #CAFF6C;
+.mono{ font-family: 'IBM Plex Mono', monospace; }
+.side-pad{ padding-left: var(--pad); padding-right: var(--pad); }
+.section-label{ font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; }
 
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    line-height: 40px;
-  }
-}
-
-h2 {
-  font-family: 'Press Start 2P';
-  font-size: 72px;
-}
-
-h4 {
-  position: relative;
-  font-family: 'Press Start 2P';
-  font-size: 56px;
-  line-height: 64px;
-  letter-spacing: -0.03em;
-  color: #FFFFFF;
-  text-align: center;
-  -webkit-text-stroke: 1px #000000;
-}
-
-p {
-  margin: 0;
-}
-
-/* === Layout strony === */
-body {
-  height: 100vh;
-  background-image: url('/images/bg.png');
+/* ---------- Hero ---------- */
+.hero{
+  background-color: #33540D;
+  background-image: url(./assets/hero-bg.png);
+  background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-}
-
-#main {
-  position: relative;
-  height: 100vh;
-  width: 100vw;
-}
-
-#about_me {
-  display: none;
-}
-
-img {
-  position: absolute;
-  top: 32vh;
-  left: 66vw;
-}
-
-/* === Hero: tekst === */
-#main-text {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  row-gap: 24px;
-  z-index: 66;
-  padding-top: 128px;
-  padding-left: 48px;
-  width: 55%;
+  justify-content: center;
+  min-height: min(82vh, 720px);
+  padding-bottom: 96px; /* room for the fixed nav bar so the title looks centered */
+  position: relative;
+  overflow: hidden;
 }
 
-.layered-text {
-  position: relative;
+.hero-title{
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  font-family: var(--font-hero);
+  font-weight: 400;
+  font-size: clamp(36px, 11vw, 176px);
+  line-height: 1.05;
+  color: #FFFFFF;
+}
+
+/* ---------- Fixed bottom nav — isosceles trapezoid, flush flat buttons ---------- */
+.nav-bar{
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+  background: #ADE065;
+  clip-path: polygon(56px 0, calc(100% - 56px) 0, 100% 100%, 0 100%);
+  width: 75vw;
+  max-width: 75vw;
+  display: flex;
+  gap: 0;
+  align-items: stretch;
+  justify-content: center;
+  padding: 0 80px 8px;
+  flex-wrap: wrap;
+}
+.nav-btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 32px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #DDEFC0;
+  background: #33540D;
+  border-left: 1px solid #1F350A;
+  transition: background 0.08s;
+}
+.nav-btn:first-child{ border-left: none; }
+.nav-btn:hover{ background: #1F350A; }
+.nav-btn--icon{ padding: 0 20px; }
+.nav-icon{ width: 20px; height: 20px; fill: #DDEFC0; }
+
+/* ---------- Hard/brutalist buttons + tags ---------- */
+.btn-hard{
+  border: 2.5px solid var(--ink);
+  box-shadow: 5px 5px 0 var(--ink);
+  transition: transform 0.12s, box-shadow 0.12s;
+  display: inline-block;
+}
+.btn-hard:hover{ transform: translate(5px, 5px); box-shadow: 0 0 0 var(--ink); }
+
+.btn-hard-light{
+  border: 2.5px solid var(--mint);
+  box-shadow: 5px 5px 0 var(--mint);
+  transition: transform 0.12s, box-shadow 0.12s;
+  display: inline-block;
+}
+.btn-hard-light:hover{ transform: translate(5px, 5px); box-shadow: 0 0 0 var(--mint); }
+
+.tag-hard{
+  background: var(--lime);
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 11px;
+  padding: 3px 10px;
   display: inline-block;
 }
 
-.first-layer {
-  position: absolute;
-  top: 16px;
-  left: 8px;
-  z-index: 1;
-  color: #CAFF6C;
-  -webkit-text-stroke: 13px #CAFF6C;
-}
-
-.fill-layer {
+/* =========================================================
+   MEDIA component — image/logo block used everywhere:
+   featured projects, small project grid, logofolio.
+   Combine one size + one border direction + one hover mode.
+   ========================================================= */
+.media{
   position: relative;
-  z-index: 2;
-  color: #391FFF;
-  -webkit-text-stroke: 7px #CAFF6C;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--card-bg);
+  border: 2.5px solid var(--ink);
+  box-shadow: calc(var(--sx, 0) * 6px) 6px 0 var(--ink); /* --sx comes from the border direction below */
 }
+.media img{ width: 100%; height: 100%; object-fit: cover; display: block; }
+.media__placeholder{ font-size: 11px; color: var(--muted); font-weight: 700; }
 
-/* === Hero: efekt reveal === */
-.dot-reveal {
+/* --- sizes --- */
+.media--big{ aspect-ratio: 16/10; }
+.media--small{ aspect-ratio: 4/3; }
+.media--logo{ aspect-ratio: 1/1; }
+
+/* --- border/shadow direction (pick based on layout context) --- */
+.media--border-left{ --sx: -1; }
+.media--border-center{ --sx: 0; }
+.media--border-right{ --sx: 1; }
+
+/* --- hover: reveal (small project grid — darken + show name/tags) --- */
+.media--hover-reveal{ cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; }
+.media--hover-reveal:hover{ transform: translate(calc(var(--sx) * -3px), -3px); box-shadow: calc(var(--sx) * 9px) 9px 0 var(--ink); }
+.media__overlay{
   position: absolute;
   inset: 0;
-  z-index: 5;
-  background-color: rgba(10, 10, 20, 1);
-  mask-image: radial-gradient(ellipse 40% 20% at var(--reveal-origin), transparent 0%, transparent var(--hole-size, 15%), black calc(var(--hole-size, 15%) + 25%));
-  -webkit-mask-image: radial-gradient(ellipse 40% 20% at var(--reveal-origin), transparent 0%, transparent var(--hole-size, 15%), black calc(var(--hole-size, 15%) + 25%));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.78); /* light wash — image still faintly visible */
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.media--hover-reveal:hover .media__overlay{ opacity: 1; }
+.overlay-title{ margin: 0; font-family: var(--font-hero); font-size: clamp(11px, 1.3vw, 16px); line-height: 1.4; font-weight: 400; color: var(--ink); }
+.overlay-tags{ position: absolute; left: 20px; bottom: 20px; display: flex; gap: 8px; flex-wrap: wrap; }
+.overlay-tags .tag-hard{ font-size: 10px; padding: 2px 8px; }
+
+/* --- hover: colorize (logofolio — partial desaturation, hover restores full color) --- */
+.media--hover-colorize img{
+  filter: grayscale(60%) contrast(0.92);
+  transition: filter 0.25s;
+}
+.media--hover-colorize:hover img{ filter: grayscale(0%) contrast(1); }
+/* mobile has no hover — default to full color so logos aren't permanently muted */
+@media (hover: none){
+  .media--hover-colorize img{ filter: none; }
+}
+
+/* ---------- Featured projects ---------- */
+.projects-section{ padding-top: 30px; padding-bottom: 30px; display: flex; flex-direction: column; gap: 64px; }
+.feat-row{ display: grid; grid-template-columns: repeat(12, minmax(0,1fr)); gap: 28px; align-items: center; }
+.feat-media-slot{ display: flex; grid-column: span 7; }
+.feat-media-slot .media{ width: 100%; }
+.feat-copy{ grid-column: span 5; display: flex; flex-direction: column; gap: 14px; }
+.feat-copy.order-1{ order: 1; }
+.feat-media-slot.order-2{ order: 2; }
+.feat-heading{ display: flex; align-items: baseline; gap: 16px; margin: 0; }
+.feat-num{ font-family: var(--font-hero); font-size: clamp(28px, 3.6vw, 48px); line-height: 1; color: var(--green); }
+.feat-title{ font-family: var(--font-hero); font-size: clamp(14px, 2.1vw, 26px); line-height: 1.35; margin: 0; font-weight: 400; }
+.feat-heading .feat-title{ flex: 1; min-width: 0; font-size: clamp(13px, 1.7vw, 22px); color: var(--ink); }
+.feat-desc{ font-size: 15px; line-height: 1.6; color: var(--muted); margin: 0; }
+.feat-tags{ display: flex; gap: 8px; flex-wrap: wrap; }
+.feat-link{ font-size: 13px; font-weight: 700; margin-top: 6px; }
+
+/* ---------- Small project grid ---------- */
+.grid-section{ padding-top: 36px; padding-bottom: 20px; display: flex; flex-direction: column; gap: 24px; }
+.card-small{ display: block; }
+.small-grid{ display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 20px; }
+
+/* ---------- Logofolio ---------- */
+.logofolio-section{ padding-top: 56px; padding-bottom: 56px; display: flex; flex-direction: column; gap: 24px; background: #EAF0DC; }
+/* .grid-four = old name of .logo-grid; delete it once nothing uses it */
+.logo-grid, .grid-four{ display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 16px; }
+
+/* ---------- Contact ---------- */
+.halftone{
+  background-color: var(--dark-green);
+  background-image: url(/assets/halftone-bg.png);
+  background-repeat: repeat;
+  background-size: 520px 293px;
+}
+.contact-section{
+  padding-top: 80px; padding-bottom: 80px;
+  color: var(--off-white);
+  display: flex; flex-direction: column; gap: 20px;
+}
+.contact-label{ font-size: 13px; color: var(--lime); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; }
+.contact-title{
+  font-size: 36px; margin: 0; color: var(--lime);
+  -webkit-text-stroke: 1.5px var(--dark-green); max-width: 700px;
+}
+.contact-ctas{ display: flex; gap: 16px; margin-top: 12px; flex-wrap: wrap; }
+.contact-ctas a{ padding: 10px 20px; font-size: 13px; font-weight: 700; }
+
+/* ---------- Responsive (keep last: these override the rules above) ---------- */
+@media (max-width: 860px){
+  .feat-row{ grid-template-columns: 1fr; }
+  .feat-media-slot, .feat-copy{ grid-column: span 1 !important; }
+  /* on narrow screens the image always comes first */
+  .feat-media-slot.order-2, .feat-copy.order-1{ order: 0; }
+  .small-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .logo-grid, .grid-four{ grid-template-columns: repeat(2, minmax(0,1fr)); }
 }
