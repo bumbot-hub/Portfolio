@@ -1,11 +1,6 @@
 import { Link } from 'react-router-dom'
-
-// Podmień na swoje: link do CV wrzuć jako public/cv.pdf
-const LINKS = {
-    cv: `${import.meta.env.BASE_URL}cv.pdf`,
-    github: 'https://github.com/bumbot-hub',
-    linkedin: 'https://www.linkedin.com/in/kamil-kula-dev'
-}
+import { LINKS } from '../data/links.js'
+import './NavBar.css'
 
 function GithubIcon() {
     return (
@@ -25,10 +20,10 @@ function LinkedinIcon() {
 
 export default function NavBar() {
     return (
-        <nav className="nav-bar pixel">
+        <nav className="nav-bar" aria-label="Main">
             <Link to="/#projects" className="nav-btn">/projects/</Link>
             <Link to="/about" className="nav-btn">/about_me/</Link>
-            <a href={LINKS.cv} className="nav-btn" target="_blank" rel="noreferrer">[ CV ]</a>
+            <a href={LINKS.cv} className="nav-btn" target="_blank" rel="noreferrer" aria-label="CV (PDF)">[ CV ]</a>
             <a href={LINKS.github} className="nav-btn nav-btn--icon" aria-label="GitHub" target="_blank" rel="noreferrer">
                 <GithubIcon />
             </a>

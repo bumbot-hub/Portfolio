@@ -1,0 +1,72 @@
+/* =========================================================
+   Podstrona: Heroes of the Brain 2026 (Hotb26.jsx)
+   Klasy z prefiksem hotb- — nie gryzą się z innymi projektami.
+   ========================================================= */
+.hotb{ display: flex; flex-direction: column; gap: clamp(72px, 9vw, 128px); }
+.hotb p{ margin: 0; }
+
+/* hero */
+.hotb-hero{ display: flex; flex-direction: column; gap: 24px; }
+.hotb-breadcrumb{ margin: 0; font-size: 14px; font-weight: 700; color: var(--muted); }
+.hotb-breadcrumb a{ color: var(--dark-green); }
+.hotb-breadcrumb a:hover{ text-decoration: underline; }
+.hotb-title{ margin: 0; font-size: clamp(20px, 4.4vw, 56px); line-height: 1.25; font-weight: 400; overflow-wrap: anywhere; }
+.hotb-lead{ font-size: clamp(18px, 1.8vw, 22px); line-height: 1.6;}
+.hotb-meta{
+    display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin: 8px 0 0; border: 2.5px solid var(--ink); box-shadow: 6px 6px 0 var(--ink);
+}
+.hotb-meta > div{ padding: 16px 18px; border-left: 2px solid var(--ink); }
+.hotb-meta > div:first-child{ border-left: none; }
+.hotb-meta dt{ font-size: 12px; font-weight: 700; color: var(--dark-green); margin-bottom: 6px; }
+.hotb-meta dd{ margin: 0; font-size: 15px; font-weight: 700; }
+
+/* section head */
+.hotb-section{ display: flex; flex-direction: column; gap: 32px; }
+.hotb .hotb-kicker{ margin-bottom: -18px; color: var(--muted); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
+.hotb-question{ margin: 0; font-size: clamp(22px, 2.8vw, 36px); line-height: 1.3; font-weight: 700; letter-spacing: -0.03em; }
+
+.hotb-body{ display: flex; flex-direction: column; gap: 18px; }
+
+.hotb-body p, .hotb-card p, .hotb-log li, .hotb-list li{ font-size: 17px; line-height: 1.7; }
+
+/* challenge cards */
+.hotb-cards{ display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
+.hotb-card{ border: 2.5px solid var(--ink); box-shadow: 6px 6px 0 var(--ink); padding: 24px; display: flex; flex-direction: column; gap: 12px; background: #fff; }
+.hotb-card-title{ margin: 0; font-size: 17px; }
+.hotb-key{ color: var(--dark-green); font-weight: 700; }
+.hotb-card .hotb-key{ background: var(--lime); color: var(--ink); padding: 0 6px; border: 1.5px solid var(--ink); }
+
+/* boards + gallery */
+.hotb-boards{ display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
+.hotb-gallery{ display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px 32px; }
+.hotb-shot{ margin: 0; display: flex; flex-direction: column; gap: 14px; }
+.hotb-shot--pair{ grid-column: span 2; }
+.hotb-shot-media{ display: grid; grid-template-columns: 1fr; gap: 20px; }
+.hotb-shot--pair .hotb-shot-media{ grid-template-columns: 1fr 1fr; }
+.hotb-shot figcaption{ display: flex; flex-direction: column; gap: 4px; font-size: 15px; line-height: 1.55; color: var(--muted); }
+.hotb-shot figcaption strong{ color: var(--ink); font-size: 15px; }
+
+/* process / outcome / todo */
+.hotb-log, .hotb-list{ list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.hotb-log{ background: var(--darker-green); color: var(--off-white); padding: 28px; gap: 14px; border: 2.5px solid var(--ink); box-shadow: 6px 6px 0 var(--ink); }
+.hotb-log li{ font-size: 15px; }
+.hotb-log-key{ color: var(--lime); font-weight: 700; }
+.hotb-list{ gap: 16px; }
+.hotb-list li{ display: grid; grid-template-columns: 3.2em 1fr; gap: 8px; align-items: baseline; }
+.hotb-check{ color: var(--dark-green); font-weight: 700; }
+.hotb-box{ color: var(--muted); font-weight: 700; }
+
+
+@media (max-width: 860px){
+    .hotb-meta{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .hotb-meta > div:nth-child(3){ border-left: none; }
+    .hotb-meta > div:nth-child(n+3){ border-top: 2px solid var(--ink); }
+    .hotb-cards, .hotb-boards{ grid-template-columns: 1fr; }
+    .hotb-gallery{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px){
+    .hotb-gallery{ grid-template-columns: 1fr; }
+    .hotb-shot--pair{ grid-column: span 1; }
+    .hotb-log{ padding: 20px; }
+}

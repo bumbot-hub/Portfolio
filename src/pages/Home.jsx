@@ -1,46 +1,28 @@
 import Hero from '../components/Hero.jsx'
-import Card from '../components/Card.jsx'
-import MediaBlock from '../components/MediaBlock.jsx'
-import { projects, logofolio } from '../data/projects.js'
-
-const bigProjects = projects.filter((p) => p.size === 'big')
-const smallProjects = projects.filter((p) => p.size === 'small')
-const logos = logofolio;
+import ProjectTiles from '../components/ProjectTiles.jsx'
+import { projects, logofolio, homeGrid } from '../data/projects.js'
+import { LINKS } from '../data/links.js'
+import './home.css'
 
 export default function Home() {
-  return (
-    <main>
-      <Hero />
+    return (
+        <main className="home">
+            <Hero />
 
-      <section id="projects" className="projects-section side-pad">
-        <div className="section-label pixel">projects</div>
-        {bigProjects.map((project, i) => (
-          <Card key={project.slug} index={i + 1} reverse={i % 2 === 1} {...project} />
-        ))}
-      </section>
+            <ProjectTiles projects={projects} logos={logofolio} order={homeGrid} />
 
-      <section className="grid-section side-pad">
-        <div className="section-label pixel">others</div>
-        <div className="small-grid">
-          {smallProjects.map((project) => (
-            <Card key={project.slug} {...project} />
-          ))}
-        </div>
-      </section>
-
-
-      <section id="logofolio" className="side-pad" style={{ minHeight: '40vh' }}>
-        <div className="logofolio-label mono">logofolio</div>
-        <div className="logo-grid">
-          {logos.map((logo, i) => (
-            <MediaBlock key={i} size="logo" src={logo.image} label={logo.name} />
-          ))}
-        </div>
-      </section>
-
-      <footer id="contact" className="contact-section halftone side-pad" style={{ minHeight: '40vh' }}>
-        <div className="contact-label mono">contact</div>
-      </footer>
-    </main>
-  )
+            <footer id="contact" className="contact-section halftone side-pad">
+                <div className="contact-label">contact</div>
+                <h2 className="contact-title h-display">Let's work together</h2>
+                <p className="contact-text">Open to internships, freelance and collaborations.</p>
+                <div className="contact-ctas">
+                    {LINKS.email && <a href={`mailto:${LINKS.email}`} className="btn-hard-light">{LINKS.email}</a>}
+                    <a href={LINKS.linkedin} className="btn-hard-light" target="_blank" rel="noreferrer">LinkedIn</a>
+                    <a href={LINKS.github} className="btn-hard-light" target="_blank" rel="noreferrer">GitHub</a>
+                    <a href={LINKS.cv} className="btn-hard-light" target="_blank" rel="noreferrer">CV</a>
+                </div>
+                <p className="contact-copy">© {new Date().getFullYear()} Kamil Kula</p>
+            </footer>
+        </main>
+    )
 }

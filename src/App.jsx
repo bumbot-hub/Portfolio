@@ -4,6 +4,7 @@ import NavBar from './components/NavBar.jsx'
 import Home from './pages/Home.jsx'
 import About from './pages/About.jsx'
 import Project from './pages/Project.jsx'
+import NotFound from './pages/NotFound.jsx'
 
 function ScrollManager() {
   const { hash, key } = useLocation()
@@ -22,14 +23,17 @@ function ScrollManager() {
 export default function App() {
   return (
     <>
+      <a href="#content" className="skip-link mono">Skip to content</a>
       <ScrollManager />
       <NavBar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/projects/:slug" element={<Project />} />
-        <Route path="*" element={<p className="mono side-pad" style={{ padding: '160px 0' }}>404 — nie ma takiej strony.</p>} />
-      </Routes>
+      <div id="content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/projects/:slug" element={<Project />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
     </>
   )
 }

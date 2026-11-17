@@ -35,7 +35,7 @@ export default function Card({
       <Link to={to} className="card-small">
         <MediaBlock size="small" border={resolvedBorder} hover={resolvedHover} src={image} label={imageLabel}>
           <div className="media__overlay">
-            <h3 className="overlay-heading">{heading}</h3>
+            <h3 className="overlay-title">{heading}</h3>
             <Tags tags={tags} className="overlay-tags" />
           </div>
         </MediaBlock>
