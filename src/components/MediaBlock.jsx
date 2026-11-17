@@ -5,7 +5,7 @@ import './MediaBlock.css'
 //
 // size:   'big' | 'small'        → proportions (see .media--* in MediaBlock.css)
 // border: 'left' | 'center' | 'right'       → direction of the hard shadow (default 'left' = bottom-left)
-// src:    path relative to public/, no leading slash ('images/x.png'); empty = placeholder
+// src:    path relative to public/, no leading slash ('images/x.webp'); empty = placeholder
 // children: rendered on top of the image
 export default function MediaBlock({
   size = 'small',

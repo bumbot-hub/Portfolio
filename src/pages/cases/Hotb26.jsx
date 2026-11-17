@@ -22,10 +22,10 @@ const challenges = [
 // Pasek w „03 Visual system” — screeny z identyfikacji. Dodawaj/usuwaj dowolnie, kolejność = kolejność na pasku.
 // Obrazki mogą mieć różne proporcje: wysokość paska jest stała, szerokość dopasuje się sama.
 const visualSystem = [
-    { src: "images/hotb/color-palette.png", label: 'palette — digital' },
-    { src: "images/hotb/typo.png", label: 'typography' },
-    { src: "images/hotb/assets.png", label: 'wireframe line art' },
-    { src: "images/hotb/icons.png", label: 'category icons' },
+    { src: "images/hotb/color-palette.webp", label: 'palette — digital' },
+    { src: "images/hotb/typo.webp", label: 'typography' },
+    { src: "images/hotb/assets.webp", label: 'wireframe line art' },
+    { src: "images/hotb/icons.webp", label: 'category icons' },
     //{ src: null, label: 'dithering accents' },
 ]
 
@@ -33,16 +33,16 @@ const visualSystem = [
 // compare = suwak porównania edycji 2025 ↔ 2026 zamiast zwykłego zdjęcia (na telefonie: dotknięcie przełącza).
 const gallery = [
     { id: 'rollup', title: 'Roll-up', text: 'Signed off by every patron, readable from across the hall.', image: null,
-        compare: { before: null, after: "images/hotb/rollup_26.png", labels: ['2025', '2026'] } },
+        compare: { before: null, after: "images/hotb/rollup_26.webp", labels: ['2025', '2026'] } },
     { id: 'social', title: 'Social media', text: 'Templates that let the whole team post fast and on-brand.', image: null },
     { id: 'badges', title: 'ID badges', text: 'A colour per role, readable from across the room.', image: null,
-        compare: { before: null, after: "images/hotb/ID_26.png", labels: ['2025', '2026'] } },
+        compare: { before: null, after: "images/hotb/ID_26.webp", labels: ['2025', '2026'] } },
     { id: 'posters', title: 'Posters & covers', text: 'A3 poster, screen version and Facebook covers.', image: null },
     // naklejki: 4 osobne kafelki (cały rząd na desktopie); fit: 'contain' = cały kształt widoczny, bez przycinania
-    { id: 'sticker1', title: 'Sticker 1/4', text: 'One of four, picked from team proposals and made print-ready.', image: "images/hotb/sticker_1.png", fit: 'contain' },
-    { id: 'sticker2', title: 'Sticker 2/4', text: 'One of four, picked from team proposals and made print-ready.', image: "images/hotb/sticker_2.png", fit: 'contain' },
-    { id: 'sticker3', title: 'Sticker 3/4', text: 'One of four, picked from team proposals and made print-ready.', image: "images/hotb/sticker_3.png", fit: 'contain' },
-    { id: 'sticker4', title: 'Sticker 4/4', text: 'One of four, picked from team proposals and made print-ready.', image: "images/hotb/sticker_4.png", fit: 'contain' },
+    { id: 'sticker1', title: 'Sticker 1/4', text: 'One of four, picked from team proposals and made print-ready.', image: "images/hotb/sticker_1.webp", fit: 'contain' },
+    { id: 'sticker2', title: 'Sticker 2/4', text: 'One of four, picked from team proposals and made print-ready.', image: "images/hotb/sticker_2.webp", fit: 'contain' },
+    { id: 'sticker3', title: 'Sticker 3/4', text: 'One of four, picked from team proposals and made print-ready.', image: "images/hotb/sticker_3.webp", fit: 'contain' },
+    { id: 'sticker4', title: 'Sticker 4/4', text: 'One of four, picked from team proposals and made print-ready.', image: "images/hotb/sticker_4.webp", fit: 'contain' },
     { id: 'slides', title: 'Presentations', text: 'Opening and closing decks, with podium slides for the winners.', image: null },
     { id: 'tshirt', title: 'Crew T-shirt', text: 'A team design, vectorised for DTF print on black cotton.', image: null },
     { id: 'invites', title: 'Invitations', text: 'Folded cards for university authorities.', image: null },
