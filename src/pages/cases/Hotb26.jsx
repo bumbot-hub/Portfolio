@@ -34,7 +34,7 @@ export default function Hotb26() {
             {/* ---------- Hero ---------- */}
             <header className="hotb-hero">
                 <p className="hotb-breadcrumb mono">
-                    <Link to="/#projects">/projects/</Link> case_01 · Art_Director · 2026
+                    <Link to="/#projects"> &lt; </Link>
                 </p>
                 <h1 className="hotb-title pixel">Heroes_of_the_Brain</h1>
                 <p className="hotb-lead">
@@ -45,7 +45,7 @@ export default function Hotb26() {
                 <dl className="hotb-meta mono">
                     <div><dt>role_</dt><dd>Art Director &amp; Design Lead</dd></div>
                     <div><dt>team_</dt><dd>5 designers</dd></div>
-                    <div><dt>timeline_</dt><dd><mark className="todo-mark">START</mark> – Nov 2026</dd></div>
+                    <div><dt>timeline_</dt><dd>Mar 2026 – Dec 2026</dd></div>
                     <div><dt>tools_</dt><dd>Figma, Affinity</dd></div>
                 </dl>
                 <div className="feat-tags">
@@ -73,7 +73,7 @@ export default function Hotb26() {
                         because the earlier directions were weak: the identity was simply never written down, or at
                         least never handed over to the next team. On top of that, last year’s printed materials came out
                         too dark to read. Having worked on the 2025 edition, I knew where things broke — partly because
-                        I’d broken some of them myself.
+                        I’d broken some of them myself 🤓.
                     </p>
                     <p>
                         I didn’t want to simply extend the 2025 look, as it never quite matched the event’s DNA, and very
@@ -92,7 +92,7 @@ export default function Hotb26() {
                 <div className="hotb-cards">
                     {challenges.map((c) => (
                         <div key={c.key} className="hotb-card">
-                            <h3 className="hotb-card-title mono"><span className="hotb-key">[{c.key}]</span> {c.title}</h3>
+                            <h3 className="hotb-card-title mono"><span className="hotb-key">{c.key}</span> {c.title}</h3>
                             <p>{c.text}</p>
                         </div>
                     ))}

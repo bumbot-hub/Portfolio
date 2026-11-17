@@ -1,0 +1,23 @@
+/* ---------- Pasek postępu po lewej od kafli (tylko desktop) ---------- */
+.rail{ position: relative; }
+.rail-inner{ position: sticky; top: 28vh; display: flex; flex-direction: column; gap: 18px; }
+.rail-label, .rail-counter{ font-size: 11px; font-weight: 700; letter-spacing: 0.18em; color: var(--muted); }
+.rail-track{ position: relative; width: 140px; height: 300px; }
+.rail-line, .rail-fill{ position: absolute; left: 6px; top: 0; width: 2px; }
+.rail-line{ bottom: 0; background: var(--rail-track); }
+.rail-fill{ background: var(--dark-green); transition: height 0.25s ease; }
+.rail-dot{ position: absolute; left: 7px; display: flex; align-items: center; gap: 12px; transform: translate(-5px, -50%); }
+.rail-dot-mark{
+    display: block; flex: none;
+    width: 10px; height: 10px; border-radius: 50%;
+    background: #FFFFFF; border: 2px solid var(--rail-track); box-sizing: border-box;
+    transition: all 0.2s ease;
+}
+.rail-dot.is-past .rail-dot-mark{ background: var(--dark-green); border-color: var(--dark-green); }
+.rail-dot.is-active{ transform: translate(-8px, -50%); }
+.rail-dot.is-active .rail-dot-mark{ width: 16px; height: 16px; background: var(--lime); border-color: var(--ink); }
+.rail-dot-name{ font-size: 12px; font-weight: 700; line-height: 1.3; white-space: nowrap; color: var(--ink); }
+
+@media (max-width: 860px){
+    .rail{ display: none; }
+}

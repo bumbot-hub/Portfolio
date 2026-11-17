@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import ProgressRail from './ProgressRail.jsx'
+import './ProjectTiles.css'
 
 const BASE = import.meta.env.BASE_URL
 

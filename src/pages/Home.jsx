@@ -2,7 +2,7 @@ import Hero from '../components/Hero.jsx'
 import ProjectTiles from '../components/ProjectTiles.jsx'
 import { projects, logofolio, homeGrid } from '../data/projects.js'
 import { LINKS } from '../data/links.js'
-import './home.css'
+import './Home.css'
 
 export default function Home() {
     return (

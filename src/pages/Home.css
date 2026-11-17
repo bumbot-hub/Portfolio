@@ -1,182 +1,26 @@
 /* =========================================================
    Strona główna (Home.jsx)
    Doto = tylko nagłówki (.h-display), Space Grotesk = cała reszta.
-   Paleta: zmienne z style.css (--lime, --green, --dark-green, --darker-green, --mint, --ink…).
+   Hero i kafle mają własne pliki w components/.
    ========================================================= */
 .home{
     font-family: 'Space Grotesk', sans-serif;
     letter-spacing: -0.01em;
-    --paper: #F4F4EF;
-    --rail-track: #E6E5DC;
-}
-.h-display{
-    font-family: 'Doto', monospace;
-    font-weight: 900;
-    letter-spacing: 0;
 }
 
-/* ---------- Hero ---------- */
-.home .hero-title{
-    font-family: 'Doto', monospace;
-    font-weight: 900;
-    font-size: clamp(72px, 15vw, 260px);
-    line-height: 0.82;
-    letter-spacing: -0.02em;
+/* ---------- Kontakt (stopka) ---------- */
+.halftone{
+    background-color: var(--dark-green);
+    background-repeat: repeat;
+    background-size: 520px 293px;
 }
-.home .hero-role{ font-family: 'Space Grotesk', sans-serif; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
-.home .hero-tagline{ font-family: 'Space Grotesk', sans-serif; }
-.home .hero-cta{ font-family: 'Space Grotesk', sans-serif; font-weight: 700; }
-
-/* ---------- Sekcja projektów ---------- */
-.projects{
-    padding-top: 96px;
-    padding-bottom: 120px;
-    background: #FFFFFF;
-    color: var(--ink);
+.contact-section{
+    padding-top: 80px; padding-bottom: calc(64px + var(--nav-h));
+    color: var(--off-white);
+    display: flex; flex-direction: column; gap: 20px;
 }
-.projects-layout{
-    max-width: 1280px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 140px minmax(0, 1fr);
-    gap: 40px;
-}
-.projects-main{ display: flex; flex-direction: column; gap: 40px; min-width: 0; }
-.projects-head{ display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; }
-.projects-title{ margin: 0; font-size: clamp(40px, 6vw, 80px); line-height: 1; }
-.projects-hint{ font-size: 12px; font-weight: 700; letter-spacing: 0.16em; color: var(--muted); }
-
-/* ---------- Kafle (lekko Windows Phone) ---------- */
-.tiles{
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    grid-auto-rows: 210px;
-    grid-auto-flow: dense; /* duże kafle nie zostawiają dziur — mniejsze wskakują w wolne pola */
-    gap: 10px;
-}
-.tile{
-    position: relative;
-    display: block;
-    overflow: hidden;
-    text-decoration: none;
-    border: 2.5px solid var(--ink);
-    background: var(--paper);
-    color: var(--ink);
-    transition: transform 0.18s ease, box-shadow 0.18s ease;
-}
-a.tile:hover, .tile:hover{ transform: translate(-4px, -4px); box-shadow: 8px 8px 0 var(--ink); }
-.tile:focus-visible{ outline: 3px solid var(--lime); outline-offset: 3px; }
-
-.tile--big{ grid-column: span 2; grid-row: span 2; }
-.tile--wide{ grid-column: span 2; }
-
-/* kolory kafli */
-.tone-forest{ background: var(--darker-green); color: var(--lime); }
-.tone-olive { background: var(--dark-green);   color: var(--mint); }
-.tone-green { background: var(--green);        color: var(--ink); }
-.tone-ink   { background: var(--ink);          color: var(--lime); }
-.tone-lime  { background: var(--lime);         color: var(--ink); }
-.tone-mint  { background: var(--mint);         color: var(--dark-green); }
-.tone-paper { background: var(--paper);        color: var(--muted); }
-
-/* wideo / GIF wypełnia kafel */
-.tile-media{ position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
-
-/* placeholder bez pliku — przesuwające się paski */
-@keyframes tile-gif-slide{ from{ background-position: 0 0; } to{ background-position: 56px 0; } }
-.tile-gif{
-    position: absolute; inset: 0;
-    display: flex; align-items: center; justify-content: center;
-    background-image: repeating-linear-gradient(135deg, rgba(255,255,255,0.08) 0 14px, transparent 14px 28px);
-    animation: tile-gif-slide 1.4s linear infinite;
-    font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
-    opacity: 0.85;
-}
-
-/* nazwa projektu w lewym dolnym rogu — na hover lekko podjeżdża („live tile”) */
-.tile-meta{
-    position: absolute; left: 0; right: 0; bottom: 0;
-    padding: 14px 16px;
-    transition: padding 0.2s ease;
-}
-.tile:hover .tile-meta{ padding-bottom: 22px; }
-.tile-title{ display: block; white-space: pre-line; font-size: 22px; line-height: 1.05; }
-.tile--big .tile-title{ font-size: clamp(30px, 3.2vw, 44px); }
-.tile--wide .tile-title{ font-size: 28px; }
-/* tytuł czytelny na wideo */
-.tile:has(.tile-media) .tile-meta{ background: linear-gradient(transparent, rgba(0,0,0,0.55)); color: #FFFFFF; }
-
-/* kafel „Your project?” */
-.tile--cta{ border-style: dashed; }
-.tile--cta .tile-title{ font-size: clamp(28px, 3.4vw, 48px); color: var(--ink); }
-.tile-cta-arrow{ position: absolute; top: 14px; right: 16px; font-size: 22px; font-weight: 700; color: var(--ink); transition: transform 0.2s ease; }
-.tile--cta:hover .tile-cta-arrow{ transform: translateX(4px); }
-
-/* ---------- Logotypy: kafle 1×1, jak najmniejsze kafle projektów ---------- */
-.tile--logo{ display: flex; align-items: center; justify-content: center; background: var(--paper); }
-.logo-img{ width: 56%; height: 56%; object-fit: contain; display: block; }
-.logo-placeholder{ font-size: 20px; line-height: 1.1; text-align: center; padding: 10px; color: var(--muted); }
-
-/* ---------- Tooltip przy kursorze ---------- */
-.tile-tip{
-    position: fixed; z-index: 1000;
-    pointer-events: none;
-    transform: translate(18px, 18px);
-    display: flex; flex-direction: column; gap: 6px;
-    padding: 10px 14px;
-    background: var(--lime);
-    color: var(--ink);
-    border: 2px solid var(--ink);
-    box-shadow: 5px 5px 0 var(--ink);
-}
-.tile-tip-name{ font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dark-green); }
-.tile-tip-cta{ font-size: 20px; line-height: 1; }
-@media (hover: none){ .tile-tip{ display: none; } }
-
-/* ---------- Progress bar po lewej ---------- */
-.rail{ position: relative; }
-.rail-inner{ position: sticky; top: 28vh; display: flex; flex-direction: column; gap: 18px; }
-.rail-label, .rail-counter{ font-size: 11px; font-weight: 700; letter-spacing: 0.18em; color: var(--muted); }
-.rail-track{ position: relative; width: 140px; height: 300px; }
-.rail-line, .rail-fill{ position: absolute; left: 6px; top: 0; width: 2px; }
-.rail-line{ bottom: 0; background: var(--rail-track); }
-.rail-fill{ background: var(--dark-green); transition: height 0.25s ease; }
-.rail-dot{ position: absolute; left: 7px; display: flex; align-items: center; gap: 12px; transform: translate(-5px, -50%); }
-.rail-dot-mark{
-    display: block; flex: none;
-    width: 10px; height: 10px; border-radius: 50%;
-    background: #FFFFFF; border: 2px solid var(--rail-track); box-sizing: border-box;
-    transition: all 0.2s ease;
-}
-.rail-dot.is-past .rail-dot-mark{ background: var(--dark-green); border-color: var(--dark-green); }
-.rail-dot.is-active{ transform: translate(-8px, -50%); }
-.rail-dot.is-active .rail-dot-mark{ width: 16px; height: 16px; background: var(--lime); border-color: var(--ink); }
-.rail-dot-name{ font-size: 12px; font-weight: 700; line-height: 1.3; white-space: nowrap; color: var(--ink); }
-
-/* ---------- Kontakt ---------- */
-.home .contact-label{ font-family: 'Space Grotesk', sans-serif; }
-.home .contact-title{
-    font-size: clamp(40px, 6vw, 84px);
-    line-height: 1;
-    -webkit-text-stroke: 0;
-    max-width: none;
-}
-.home .contact-ctas a{ font-family: 'Space Grotesk', sans-serif; font-size: 15px; }
-.home .contact-copy{ font-family: 'Space Grotesk', sans-serif; }
-
-/* ---------- Telefon ---------- */
-@media (max-width: 860px){
-    .projects-layout{ grid-template-columns: minmax(0, 1fr); }
-    .rail{ display: none; }
-    .tiles{ grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 170px; }
-    .tile--big{ grid-column: span 2; grid-row: span 2; }
-    .tile--wide{ grid-column: span 2; }
-    .tile--cta{ grid-column: 1 / -1 !important; }
-}
-
-@media (prefers-reduced-motion: reduce){
-    .tile-gif{ animation: none; }
-}
-
-/* na dotyku nie ma hovera — podpowiedź tylko na desktopie */
-@media (hover: none){ .projects-hint{ display: none; } }
+.contact-label{ font-size: 13px; color: var(--lime); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; }
+.contact-title{ font-size: clamp(40px, 6vw, 84px); line-height: 1; margin: 0; color: var(--lime); }
+.contact-text{ margin: 0; font-size: 18px; max-width: 50ch; }
+.contact-section .contact-ctas a{ font-size: 15px; }
+.contact-copy{ margin: 32px 0 0; font-size: 12px; opacity: 0.7; }

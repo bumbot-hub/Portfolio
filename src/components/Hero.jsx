@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import './Hero.css'
 
 export default function Hero() {
     return (
@@ -9,10 +10,10 @@ export default function Hero() {
             </h1>
             {/* Jedno zdanie o tym, kim jesteś — czytelne od razu, nie tylko w obróconej naklejce */}
             <p className="hero-tagline">
-                <span className="hero-role pixel">Product Designer</span>
+                <span className="hero-role">Product Designer</span>
                 UI/UX · brand identity · art direction — Wrocław
             </p>
-            <Link to="/#projects" className="hero-cta btn-hard-light mono">See projects ↓</Link>
+            <Link to="/#projects" className="hero-cta btn-hard-light">See projects ↓</Link>
         </header>
     )
 }

@@ -1,0 +1,31 @@
+/* =========================================================
+   MediaBlock — ramka na obraz: proporcje, obramowanie,
+   twardy cień i hover. Jeden rozmiar + jeden kierunek cienia.
+   ========================================================= */
+.media{
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--card-bg);
+    border: 2.5px solid var(--ink);
+    box-shadow: calc(var(--sx, 0) * 8px) 8px 0 var(--ink); /* --sx ustawia kierunek cienia poniżej */
+    transition: transform 0.5s, box-shadow 0.5s, border-color 0.5s;
+}
+.media:hover{
+    border-color: var(--green);
+    transform: translate(calc(var(--sx, 0) * 8px), 8px);
+    box-shadow: 0 0 0 var(--green);
+}
+.media img{ width: 100%; height: 100%; object-fit: contain; padding: 12%; display: block; }
+.media__placeholder{ font-size: 11px; color: var(--muted); font-weight: 700; text-align: center; }
+
+/* --- rozmiary --- */
+.media--big{ aspect-ratio: 16/10; }
+.media--small{ aspect-ratio: 4/3; }
+
+/* --- kierunek obramowania/cienia --- */
+.media--border-left{ --sx: -1; }
+.media--border-center{ --sx: 0; }
+.media--border-right{ --sx: 1; }

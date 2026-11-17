@@ -1,4 +1,5 @@
 import { LINKS } from '../data/links.js'
+import './Subpage.css'
 
 // Szkic — przepisz własnymi słowami.
 export default function About() {

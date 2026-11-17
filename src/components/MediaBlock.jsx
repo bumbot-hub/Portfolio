@@ -1,25 +1,25 @@
+import './MediaBlock.css'
+
 // Frame for an image: proportions, border + hard shadow, hover behaviour.
-// Knows nothing about projects — Card and the logofolio both build on it.
+// Knows nothing about projects — used by project subpages and case studies.
 //
-// size:   'big' | 'small' | 'logo'          → proportions (see .media--* in style.css)
+// size:   'big' | 'small'        → proportions (see .media--* in MediaBlock.css)
 // border: 'left' | 'center' | 'right'       → direction of the hard shadow (default 'left' = bottom-left)
-// hover:  'none' | 'reveal' | 'colorize'    → what happens on hover
 // src:    path relative to public/, no leading slash ('images/x.png'); empty = placeholder
-// children: rendered on top of the image (Card puts the hover overlay here)
+// children: rendered on top of the image
 export default function MediaBlock({
   size = 'small',
   border = 'left',
-  hover = 'none',
   src,
   label = '',
   children
 }) {
-  const className = `media media--${size} media--border-${border} media--hover-${hover}`
+  const className = `media media--${size} media--border-${border}`
 
   return (
     <div className={className}>
       {src ? (
-        <img src={`${import.meta.env.BASE_URL}${src}`} alt={label} className={'project-img'} />
+        <img src={`${import.meta.env.BASE_URL}${src}`} alt={label} />
       ) : (
         <span className="mono media__placeholder">[{label}]</span>
       )}

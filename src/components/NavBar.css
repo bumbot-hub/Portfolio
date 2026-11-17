@@ -1,6 +1,51 @@
-/* Dolny pasek menu — ten sam trapez, nowy font (Space Grotesk zamiast pikselowego) */
-.nav-bar{ font-family: 'Space Grotesk', sans-serif; }
-.nav-btn{ font-size: 17px; font-weight: 700; letter-spacing: -0.01em; }
+/* ---------- Fixed bottom nav — isosceles trapezoid, flush flat buttons ---------- */
+.nav-bar{
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+    clip-path: polygon(56px 0, calc(100% - 56px) 0, 100% 100%, 0 100%);
+    display: flex;
+    gap: 0;
+    align-items: stretch;
+    justify-content: center;
+    padding: 0 80px 8px;
+    overflow: hidden;
+    background: var(--green);
+    font-family: 'Space Grotesk', sans-serif;
+}
+.nav-btn{
+    flex-shrink: 0;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 8px;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: #FFFFFF;
+    background: var(--dark-green);
+    border-left: 2px solid var(--ink);
+    box-shadow: -4px 10px 0 var(--ink);        /* cień pod spodem */
+    transition: background 0.08s, transform 0.12s, box-shadow 0.12s;
+}
+.nav-btn:first-child{ border-left: none; }
+.nav-btn--icon{ padding: 0 20px; }
+.nav-icon{ width: 36px; height: 36px; fill: #FFFFFF; }
+.nav-btn:hover{
+    transform: translateY(6px);                /* wjeżdża dokładnie o tyle, ile był cień */
+}
+
+/* telefon: nawigacja na całą szerokość, żeby się nie ucinała */
 @media (max-width: 640px){
-    .nav-btn{ font-size: 13px; }
+    .nav-bar{
+        left: 0; right: 0; transform: none;
+        clip-path: none; padding: 0;
+    }
+    .nav-btn{ flex: 1 1 auto; min-width: 0; padding: 20px 4px; font-size: 13px; box-shadow: none; }
+    .nav-btn--icon{ flex: 0 0 auto; padding: 0 14px; }
+    .nav-icon{ width: 22px; height: 22px; }
+    .nav-btn:hover{ transform: none; }
 }

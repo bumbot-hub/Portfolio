@@ -1,0 +1,62 @@
+/* ---------- Hero (strona główna) ---------- */
+.hero{
+    background-color: #33540D;
+    background-image: url(../assets/hero-bg.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: min(82vh, 720px);
+    padding-bottom: 96px; /* miejsce na dolną nawigację, żeby tytuł wyglądał na wyśrodkowany */
+    position: relative;
+    overflow: hidden;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.hero-title{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Doto', monospace;
+    font-weight: 900;
+    font-size: clamp(72px, 15vw, 260px);
+    line-height: 0.82;
+    letter-spacing: -0.02em;
+    color: #FFFFFF;
+    margin: 0 0 0 10%;
+}
+.hero-tagline{
+    margin: 28px 0 0 10%;
+    align-self: flex-start;
+    max-width: min(80%, 44ch);
+    padding: 14px 18px;
+    background: var(--darker-green);
+    border: 2.5px solid var(--ink);
+    box-shadow: 6px 6px 0 var(--ink);
+    color: var(--off-white);
+    font-size: clamp(15px, 1.6vw, 20px);
+    line-height: 1.5;
+}
+.hero-role{
+    display: block;
+    margin-bottom: 10px;
+    color: var(--lime);
+    font-size: clamp(12px, 1.6vw, 20px);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+/* obramowanie i cień daje .btn-hard-light (miętowe) */
+.hero-cta{
+    align-self: flex-start;
+    margin: 28px 0 0 10%;
+    padding: 12px 22px;
+    background: var(--lime);
+    color: var(--ink);
+    font-weight: 700;
+}
+
+@media (max-width: 640px){
+    .hero{ padding-bottom: 48px; }
+}

@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom'
 import MediaBlock from '../components/MediaBlock.jsx'
 import { projects } from '../data/projects.js'
 import NotFound from './NotFound.jsx'
+import './Subpage.css'
 
 // Projekty z własną podstroną: slug → plik w src/pages/cases/.
 // Każda podstrona ma swój układ i treść. Nowy projekt = nowy plik + jedna linijka tutaj.

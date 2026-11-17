@@ -1,3 +1,5 @@
+import './ProgressRail.css'
+
 // Pionowy pasek postępu przy sekcji projektów: linia + kropka na każdy projekt.
 // Przejrzane = wypełnione, aktualny = większa limonkowa kropka z nazwą obok.
 export default function ProgressRail({ names, active, progress }) {
