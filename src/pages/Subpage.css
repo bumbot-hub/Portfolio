@@ -24,25 +24,6 @@
 .case-section p{ margin: 0; font-size: 17px; line-height: 1.7; }
 .case-next{ align-self: flex-end; padding: 14px 24px; font-weight: 700; margin-top: 32px; }
 
-/* ---------- Tło podstron case study: mata do cięcia ----------
-   (Project.jsx owija podstronę projektu w <div className="case-bg">) */
-.case-bg{
-    --grid: 16px;                                   /* rozmiar małej kratki */
-    --grid-major: calc(var(--grid) * 5);            /* co ile gruba linia */
-    --grid-minor-c: rgba(66, 92, 25, 0.09);         /* kolor cienkich linii */
-    --grid-major-c: rgba(66, 92, 25, 0.2);          /* kolor grubych linii */
-    --grid-minor-w: 1px;                            /* grubość cienkich linii */
-    --grid-major-w: 2px;                            /* grubość grubych linii */
-    overflow-x: clip;                               /* pełnoszerokie elementy (100vw) nie robią poziomego scrolla */
-    background-color: #FFFFFF;
-    background-image:
-            linear-gradient(var(--grid-major-c) 1px, transparent 1px),
-            linear-gradient(90deg, var(--grid-major-c) 1px, transparent 1px),
-            linear-gradient(var(--grid-minor-c) 1px, transparent 1px),
-            linear-gradient(90deg, var(--grid-minor-c) 1px, transparent 1px);
-    background-size:
-            var(--grid-major) var(--grid-major),
-            var(--grid-major) var(--grid-major),
-            var(--grid) var(--grid),
-            var(--grid) var(--grid);
-}
+/* ---------- Tło podstron case study ----------
+   (Project.jsx owija podstronę w <div className="case-bg blueprint">; sama kratka: .blueprint w style.css) */
+.case-bg{ overflow-x: clip; }                       /* pełnoszerokie elementy (100vw) nie robią poziomego scrolla */

@@ -35,6 +35,25 @@ body{
 
 a{ color: inherit; text-decoration: none; }
 
+/* ---------- Blueprint: kratka jak na macie do cięcia (hero na głównej + podstrony case study) ---------- */
+.blueprint{
+  --grid: 16px;                                   /* rozmiar małej kratki */
+  --grid-major: calc(var(--grid) * 5);            /* co ile gruba linia */
+  --grid-minor-c: rgba(66, 92, 25, 0.09);         /* kolor cienkich linii */
+  --grid-major-c: rgba(66, 92, 25, 0.2);          /* kolor grubych linii */
+  background-color: #FFFFFF;
+  background-image:
+          linear-gradient(var(--grid-major-c) 1px, transparent 1px),
+          linear-gradient(90deg, var(--grid-major-c) 1px, transparent 1px),
+          linear-gradient(var(--grid-minor-c) 1px, transparent 1px),
+          linear-gradient(90deg, var(--grid-minor-c) 1px, transparent 1px);
+  background-size:
+          var(--grid-major) var(--grid-major),
+          var(--grid-major) var(--grid-major),
+          var(--grid) var(--grid),
+          var(--grid) var(--grid);
+}
+
 /* ---------- Typography helpers ---------- */
 .mono{ font-family: 'IBM Plex Mono', monospace; }
 .pixel{ font-family: 'Press Start 2P', monospace; }

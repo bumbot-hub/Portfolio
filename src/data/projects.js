@@ -72,8 +72,8 @@ export const projects = [
 export const logofolio = [
     { slug: 'neuron-ide', name: 'Neuron IDE', image: 'images/logos/neuron-ide.png', page: false },
     { slug: 'logo-2', name: '[LOGO 2]', image: null, page: false },
-    { slug: 'logo-3', name: '[LOGO 3]', image: null, page: false },
-    { slug: 'logo-4', name: '[LOGO 4]', image: null, page: false },
+    { slug: 'logo-3', name: '[LOGO 3]', image: 'images/logos/neurohorror.png', page: false },
+    { slug: 'logo-4', name: '[LOGO 4]', image: 'images/logos/neuroscholar.png', page: false },
     { slug: 'logo-5', name: '[LOGO 5]', image: null, page: false },
     { slug: 'logo-6', name: '[LOGO 6]', image: null, page: false },
     { slug: 'logo-7', name: '[LOGO 7]', image: null, page: false },

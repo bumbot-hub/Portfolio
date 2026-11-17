@@ -56,5 +56,5 @@ export default function Project() {
     )
 
     // Kratka (mata do cięcia) tylko na podstronach case study
-    return CasePage ? <div className="case-bg">{page}</div> : page
+    return CasePage ? <div className="case-bg blueprint">{page}</div> : page
 }

@@ -1,62 +1,49 @@
-/* ---------- Hero (strona główna) ---------- */
+/* ---------- Hero (strona główna) ----------
+   Tło: .blueprint (kratka z style.css), jak na podstronach case study. */
 .hero{
-    background-color: #33540D;
-    background-image: url(../assets/hero-bg.webp);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: min(82vh, 720px);
-    padding-bottom: 96px; /* miejsce na dolną nawigację, żeby tytuł wyglądał na wyśrodkowany */
-    position: relative;
-    overflow: hidden;
+    min-height: 100svh;
+    display: flex; align-items: center;
+    padding-top: 64px;
+    padding-bottom: calc(var(--nav-h) + 48px);     /* miejsce na dolną nawigację */
+    border-bottom: 2.5px solid var(--ink);
     font-family: 'Space Grotesk', sans-serif;
+}
+.hero-inner{
+    width: 100%; max-width: 1200px; margin: 0 auto;
+    display: flex; flex-direction: column; align-items: flex-start;
 }
 
 .hero-title{
-    display: flex;
-    flex-direction: column;
-    font-family: 'Doto', monospace;
-    font-weight: 900;
-    font-size: clamp(72px, 15vw, 260px);
-    line-height: 0.82;
-    letter-spacing: -0.02em;
-    color: #FFFFFF;
-    margin: 0 0 0 10%;
-}
-.hero-tagline{
-    margin: 28px 0 0 10%;
-    align-self: flex-start;
-    max-width: min(80%, 44ch);
-    padding: 14px 18px;
-    background: var(--darker-green);
-    border: 2.5px solid var(--ink);
-    box-shadow: 6px 6px 0 var(--ink);
-    color: var(--off-white);
-    font-size: clamp(15px, 1.6vw, 20px);
-    line-height: 1.5;
-}
-.hero-role{
-    display: block;
-    margin-bottom: 10px;
-    color: var(--lime);
-    font-size: clamp(12px, 1.6vw, 20px);
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-}
-/* obramowanie i cień daje .btn-hard-light (miętowe) */
-.hero-cta{
-    align-self: flex-start;
-    margin: 28px 0 0 10%;
-    padding: 12px 22px;
-    background: var(--lime);
+    display: flex; flex-direction: column;
+    margin: 0;
+    font-family: 'Press Start 2P', monospace; font-weight: 400;   /* ten sam pixelowy font co tytuły podstron */
+    font-size: clamp(44px, 11vw, 176px);           /* znak = 1em szerokości → „KAMIL” = 5em */
+    line-height: 1.1; letter-spacing: 0;
     color: var(--ink);
+    /* limonkowy „przesunięty druk” pod literami */
+    text-shadow: 0.035em 0.035em 0 var(--lime);
+}
+
+/* dolny rząd: tagi + opis po lewej, przycisk po prawej w tej samej linii */
+.hero-bottom{
+    width: 100%; margin-top: clamp(28px, 4vw, 48px);
+    display: flex; justify-content: space-between; align-items: flex-end; gap: 24px 40px; flex-wrap: wrap;
+}
+.hero-info{ display: flex; flex-direction: column; gap: 14px; }
+.hero-roles{ list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.hero-roles .tag-hard{ font-size: clamp(12px, 1.2vw, 15px); padding: 5px 12px; }
+.hero-tagline{
+    margin: 0; max-width: 44ch;
+    font-size: clamp(17px, 1.8vw, 24px); line-height: 1.45;
+    color: var(--ink);
+}
+.hero-cta{
+    flex: none;
+    padding: 12px 22px;
+    background: var(--lime); color: var(--ink);
     font-weight: 700;
 }
 
 @media (max-width: 640px){
-    .hero{ padding-bottom: 48px; }
+    .hero{ padding-top: 48px; padding-bottom: calc(var(--nav-h) + 32px); }
 }
