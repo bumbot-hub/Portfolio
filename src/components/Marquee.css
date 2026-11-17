@@ -1,0 +1,44 @@
+/* =========================================================
+   Marquee — zapętlony pasek obrazków (Marquee.jsx)
+   ========================================================= */
+.marquee{
+    --marquee-gap: 0px;                            /* 0 = jedna ciągła taśma */
+    --marquee-h: clamp(280px, 38vw, 520px);       /* wysokość kafelków */
+    overflow: hidden;
+}
+.marquee--bleed{ width: 100vw; margin-left: calc(50% - 50vw); }
+
+.marquee__track{
+    display: flex; width: max-content;
+    animation: marquee-scroll var(--marquee-duration, 40s) linear infinite;
+}
+.marquee--reverse .marquee__track{ animation-direction: reverse; }
+.marquee:hover .marquee__track{ animation-play-state: paused; }
+
+.marquee__group{
+    display: flex; gap: var(--marquee-gap);
+    margin: 0; padding: 0 var(--marquee-gap) 0 0;  /* odstęp po ostatnim = odstęp między kopiami */
+    list-style: none;
+}
+.marquee__item{
+    height: var(--marquee-h);
+    flex: none;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--card-bg);
+    overflow: hidden;
+}
+/* obrazki trzymają swoje proporcje — szerokość wynika z wysokości paska */
+.marquee__item img{ height: 100%; width: auto; display: block; }
+/* placeholder bez obrazka: format 4:3 */
+.marquee__item:has(.marquee__placeholder){ aspect-ratio: 4/3; }
+.marquee__item:nth-child(even):has(.marquee__placeholder){ background: var(--mint); } /* żeby placeholdery się nie zlewały */
+.marquee__placeholder{ font-size: 11px; color: var(--muted); font-weight: 700; text-align: center; padding: 0 12px; }
+
+@keyframes marquee-scroll{ to{ transform: translateX(-50%); } }
+
+/* bez animacji: zwykły pasek przewijany palcem/scrollem, bez zduplikowanej kopii */
+@media (prefers-reduced-motion: reduce){
+    .marquee{ overflow-x: auto; }
+    .marquee__track{ animation: none; }
+    .marquee__group[aria-hidden]{ display: none; }
+}

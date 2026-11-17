@@ -33,6 +33,7 @@
     --grid-major-c: rgba(66, 92, 25, 0.2);          /* kolor grubych linii */
     --grid-minor-w: 1px;                            /* grubość cienkich linii */
     --grid-major-w: 2px;                            /* grubość grubych linii */
+    overflow-x: clip;                               /* pełnoszerokie elementy (100vw) nie robią poziomego scrolla */
     background-color: #FFFFFF;
     background-image:
             linear-gradient(var(--grid-major-c) 1px, transparent 1px),

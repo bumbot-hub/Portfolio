@@ -1,0 +1,51 @@
+/* =========================================================
+   BeforeAfter — suwak / przełącznik dwóch wersji (BeforeAfter.jsx)
+   ========================================================= */
+/* rejestracja --pos pozwala animować zmienną (przejście na telefonie) */
+@property --pos{ syntax: '<percentage>'; inherits: true; initial-value: 50%; }
+
+.ba{
+    position: relative; width: 100%; height: 100%; overflow: hidden;
+    cursor: ew-resize; user-select: none; touch-action: pan-y;
+    background: var(--card-bg);
+}
+.ba--tap{ cursor: pointer; transition: --pos 0.9s cubic-bezier(0.65, 0, 0.35, 1); }
+
+.ba__layer{ position: absolute; inset: 0; }
+.ba__layer img{ width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
+.ba__layer--before{ clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
+.ba__ph{
+    display: flex; align-items: center; justify-content: center; width: 100%; height: 100%;
+    padding: 8px; text-align: center; font-size: 11px; font-weight: 700; color: var(--muted);
+}
+.ba__layer--before .ba__ph{ background: var(--mint); }   /* placeholdery: żeby było widać podział */
+.ba__layer--after .ba__ph{ background: var(--card-bg); }
+
+/* linia podziału + uchwyt */
+.ba__line{
+    position: absolute; top: 0; bottom: 0; left: var(--pos); width: 2.5px;
+    transform: translateX(-50%); background: var(--ink); pointer-events: none;
+}
+.ba__knob{
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    padding: 6px 8px; font-size: 12px; font-weight: 700; line-height: 1;
+    background: var(--lime); color: var(--ink); border: 2px solid var(--ink);
+    pointer-events: auto; cursor: ew-resize;
+}
+
+/* etykiety lat */
+.ba__label{
+    position: absolute; top: 10px; z-index: 1;
+    padding: 2px 8px; font-size: 12px; font-weight: 700;
+    background: var(--ink); color: var(--off-white);
+    transition: background 0.3s, color 0.3s;
+}
+.ba__label--before{ left: 10px; }
+.ba__label--after{ right: 10px; }
+.ba__label.is-active{ background: var(--lime); color: var(--ink); }
+
+.ba__hint{
+    position: absolute; left: 50%; bottom: 10px; transform: translateX(-50%); z-index: 1;
+    padding: 2px 8px; font-size: 11px; font-weight: 700; white-space: nowrap;
+    background: rgba(20, 21, 15, 0.75); color: var(--off-white);
+}

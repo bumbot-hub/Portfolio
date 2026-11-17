@@ -34,16 +34,6 @@
 .hotb-key{ color: var(--dark-green); font-weight: 700; }
 .hotb-card .hotb-key{ background: var(--lime); color: var(--ink); padding: 0 6px; border: 1.5px solid var(--ink); }
 
-/* boards + gallery */
-.hotb-boards{ display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
-.hotb-gallery{ display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px 32px; }
-.hotb-shot{ margin: 0; display: flex; flex-direction: column; gap: 14px; }
-.hotb-shot--pair{ grid-column: span 2; }
-.hotb-shot-media{ display: grid; grid-template-columns: 1fr; gap: 20px; }
-.hotb-shot--pair .hotb-shot-media{ grid-template-columns: 1fr 1fr; }
-.hotb-shot figcaption{ display: flex; flex-direction: column; gap: 4px; font-size: 15px; line-height: 1.55; color: var(--muted); }
-.hotb-shot figcaption strong{ color: var(--ink); font-size: 15px; }
-
 /* process / outcome / todo */
 .hotb-log, .hotb-list{ list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
 .hotb-log{ background: var(--darker-green); color: var(--off-white); padding: 28px; gap: 14px; border: 2.5px solid var(--ink); box-shadow: 6px 6px 0 var(--ink); }
@@ -55,15 +45,28 @@
 .hotb-box{ color: var(--muted); font-weight: 700; }
 
 
+/* ---------- Animacje ----------
+   Wejścia przy przewijaniu robi useHotbAnimations.js (GSAP) — tu tylko stałe efekty. */
+@keyframes hotb-blink{ 50%{ opacity: 0; } }
+
+.hotb-log::after{
+    content: '█'; color: var(--lime); line-height: 1;
+    animation: hotb-blink 1s steps(1) infinite;
+}
+
+/* migający kursor przy tytule */
+.hotb-title::after{ content: '_'; animation: hotb-blink 1s steps(1) infinite; }
+
+/* karty reagują na hover jak „twarde” przyciski, tylko odwrotnie: podnoszą się */
+.hotb-card{ transition: transform 0.15s, box-shadow 0.15s; }
+.hotb-card:hover{ transform: translate(-3px, -3px); box-shadow: 9px 9px 0 var(--ink); }
+
 @media (max-width: 860px){
     .hotb-meta{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .hotb-meta > div:nth-child(3){ border-left: none; }
     .hotb-meta > div:nth-child(n+3){ border-top: 2px solid var(--ink); }
-    .hotb-cards, .hotb-boards{ grid-template-columns: 1fr;}
-    .hotb-gallery{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .hotb-cards{ grid-template-columns: 1fr;}
 }
 @media (max-width: 560px){
-    .hotb-gallery{ grid-template-columns: 1fr; }
-    .hotb-shot--pair{ grid-column: span 1; }
     .hotb-log{ padding: 20px; }
 }
