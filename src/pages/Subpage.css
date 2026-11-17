@@ -8,8 +8,14 @@
 }
 .page-title{ font-size: clamp(22px, 4vw, 48px); line-height: 1.3; font-weight: 400; margin: 0; }
 .page-lead{ font-size: 18px; line-height: 1.7; max-width: 65ch; margin: 0; }
-.page-back{ font-weight: 700; align-self: flex-start; }
-.page-back:hover{ color: var(--dark-green); text-decoration: underline; }
+/* strzałka powrotu „<” */
+.page-back{
+    align-self: flex-start;
+    font-size: clamp(32px, 4vw, 48px); line-height: 1; font-weight: 700;
+    color: var(--dark-green);
+    transition: transform 0.12s;
+}
+.page-back:hover{ transform: translateX(-6px); }
 .page-btn{ align-self: flex-start; padding: 12px 22px; font-weight: 700; }
 
 .case-header{ display: flex; flex-direction: column; gap: 16px; }
@@ -23,8 +29,10 @@
 .case-bg{
     --grid: 16px;                                   /* rozmiar małej kratki */
     --grid-major: calc(var(--grid) * 5);            /* co ile gruba linia */
-    --grid-minor-c: rgba(66, 92, 25, 0.07);         /* kolor cienkich linii */
-    --grid-major-c: rgba(66, 92, 25, 0.16);         /* kolor grubych linii */
+    --grid-minor-c: rgba(66, 92, 25, 0.09);         /* kolor cienkich linii */
+    --grid-major-c: rgba(66, 92, 25, 0.2);          /* kolor grubych linii */
+    --grid-minor-w: 1px;                            /* grubość cienkich linii */
+    --grid-major-w: 2px;                            /* grubość grubych linii */
     background-color: #FFFFFF;
     background-image:
             linear-gradient(var(--grid-major-c) 1px, transparent 1px),
@@ -37,19 +45,3 @@
             var(--grid) var(--grid),
             var(--grid) var(--grid);
 }
-/* miarka z podziałką przy lewej krawędzi ekranu (tylko desktop) */
-.case-bg::before{
-    content: '';
-    position: fixed; top: 0; bottom: 0; left: 0; z-index: 5;
-    width: 22px;
-    pointer-events: none;
-    border-right: 1px solid var(--grid-major-c);
-    background-color: rgba(255, 255, 255, 0.85);
-    background-image:
-            linear-gradient(var(--dark-green) 1px, transparent 1px),   /* długa kreska co 5 */
-            linear-gradient(var(--grid-major-c) 1px, transparent 1px); /* krótka kreska co 1 */
-    background-size: 14px var(--grid-major), 7px var(--grid);
-    background-position: right top, right top;
-    background-repeat: repeat-y;
-}
-@media (max-width: 860px){ .case-bg::before{ display: none; } }

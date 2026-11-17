@@ -35,7 +35,7 @@ export default function Project() {
             ) : (
                 // Projekt bez własnej podstrony — prosty widok z danych w projects.js
                 <>
-                    <Link to="/#projects" className="page-back mono">← All projects</Link>
+                    <Link to="/#projects" className="page-back mono" aria-label="Back to all projects">&lt;</Link>
                     <header className="case-header">
                         <h1 className="page-title pixel">{project.heading}</h1>
                         <div className="feat-tags">

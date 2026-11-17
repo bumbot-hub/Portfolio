@@ -33,10 +33,8 @@ export default function Hotb26() {
         <article className="hotb">
             {/* ---------- Hero ---------- */}
             <header className="hotb-hero">
-                <p className="hotb-breadcrumb mono">
-                    <Link to="/#projects"> &lt; </Link>
-                </p>
-                <h1 className="hotb-title pixel">Heroes_of_the_Brain</h1>
+                <Link to="/#projects" className="page-back mono" aria-label="Back to all projects">&lt;</Link>
+                <h1 className="hotb-title pixel">Heroes of the Brain</h1>
                 <p className="hotb-lead">
                     Third edition, first complete system. I art-directed a five-person team through everything
                     a 24-hour brain–computer interface hackathon needs: from social templates to stickers,
@@ -88,7 +86,7 @@ export default function Hotb26() {
             {/* ---------- 02 Challenge ---------- */}
             <section className="hotb-section">
                 <p className="hotb-kicker mono">02 · Challenge</p>
-                <h2 className="hotb-question">How do you make five designers sound like one brand — and get it past five patrons on time?</h2>
+                <h2 className="hotb-question">How do you ship one consistent brand with five designers - on a schedule you don’t control?</h2>
                 <div className="hotb-cards">
                     {challenges.map((c) => (
                         <div key={c.key} className="hotb-card">
@@ -110,7 +108,7 @@ export default function Hotb26() {
                         Mono for a terminal feel.
                     </p>
                     <p>
-                        From my own <mark className="todo-mark">2025</mark> T-shirt design I kept the wireframe line art,
+                        From the T-shirt I designed for the 2025 edition, I kept the wireframe line art,
                         objects built purely from lines, along with dithering effects, used sparingly as accents. Around
                         them I built a new set of elements in the same spirit: grids, chamfered frames and GUI lines. I also
                         redrew the icons for all four categories so they finally match the rest of the event.
@@ -168,8 +166,8 @@ export default function Hotb26() {
                     <li><span className="hotb-check mono">[✓]</span><span><b className="hotb-key mono">A</b> Five designers, one brand: every piece, before and during the event, built on the same system.</span></li>
                     <li><span className="hotb-check mono">[✓]</span><span><b className="hotb-key mono">B</b> Readable prints this time, with only one sticker, the one on a lime background, drifting slightly in colour.</span></li>
                     <li><span className="hotb-check mono">[✓]</span><span><b className="hotb-key mono">C</b> Stickers people <mark className="todo-mark">actually put on their laptops</mark>.</span></li>
-                    <li><span className="hotb-check mono">[✓]</span><span><b className="hotb-key mono">D</b> Every piece approved by all five patrons <mark className="todo-mark">on time</mark>.</span></li>
-                    <li><span className="hotb-check mono">[+]</span><span>A documented brand book, <mark className="todo-mark">handed over</mark> so the next edition doesn’t start from zero.</span></li>
+                    <li><span className="hotb-check mono">[✓]</span><span><b className="hotb-key mono">D</b> Every piece signed off by all five patrons and sent to print on schedule — despite late sponsor logos and category details that kept changing.</span></li>
+                    <li><span className="hotb-check mono">[+]</span><span>A documented brand book, ready for whoever leads the next edition — so it doesn’t start from zero.</span></li>
                 </ul>
             </section>
 
@@ -177,7 +175,6 @@ export default function Hotb26() {
             <section className="hotb-section">
                 <p className="hotb-kicker mono">07 · Next time</p>
                 <ul className="hotb-list">
-                    <li><span className="hotb-box mono">[ ]</span><span><mark className="todo-mark">Put print specs (CMYK, bleed, cut lines) in every brief from the start, not at the end.</mark></span></li>
                     <li><span className="hotb-box mono">[ ]</span><span>Write the team rules down early: one shared Figma file, file naming, and where tasks live.</span></li>
                     <li><span className="hotb-box mono">[ ]</span><span>Plan every graphic up front: a full list of what needs to be made, reviewed by the other coordinators, so the scope is clear from day one.</span></li>
                     <li><span className="hotb-box mono">[ ]</span><span>Give the partnerships team a ready-made line for their emails, asking every sponsor, patron and partner for a white or dark-background logo from the start.</span></li>
